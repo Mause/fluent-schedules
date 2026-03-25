@@ -1,0 +1,7 @@
+{
+  "name": "fluent-schedules",
+  "packageManager": "yarn@4.13.0",
+  "devDependencies": {
+    "peggy": "^5.1.0"
+  }
+}
