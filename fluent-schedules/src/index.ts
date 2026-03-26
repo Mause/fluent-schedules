@@ -24,7 +24,7 @@ function getNthDay(firstOfMonth: Date, n: number, day: Day): Date {
   return addWeeks(firstThursday, n - 1);
 }
 
-function parseDay(day: string, { locale }: { locale: Locale }): Day {
+function parseDay(day: string, opts?: { locale?: Locale }): Day {
   const today = startOfISOWeek(new Date());
   const daysOfWeek = eachDayOfInterval({
     start: today,
@@ -33,7 +33,7 @@ function parseDay(day: string, { locale }: { locale: Locale }): Day {
 
   const days = daysOfWeek.map((date) =>
     formatDate(date, "EEEE", {
-      locale,
+      locale: opts?.locale,
     }),
   );
 
@@ -43,7 +43,7 @@ function parseDay(day: string, { locale }: { locale: Locale }): Day {
 export function iterate(
   referenceDate: Date,
   input: string,
-  { locale }: { locale: Locale },
+  opts: { locale?: Locale } | undefined = undefined,
 ) {
   const parsed = parse(input) as {
     index: 3;
@@ -55,6 +55,6 @@ export function iterate(
   return getNthDay(
     referenceDate,
     parsed.index,
-    parseDay(parsed.day_of_week, { locale }),
+    parseDay(parsed.day_of_week, { locale: opts?.locale }),
   );
 }
