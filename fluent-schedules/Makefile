@@ -1,5 +1,5 @@
-app/grammar.js: grammar.pegjs
-	yarn peggy grammar.pegjs --dts --test "3rd tuesday of the month" --output "app/grammar.js"
+src/grammar.js: grammar.pegjs
+  yarn build:grammar
 
 clean:
-	rm -f app/grammar.js app/grammar.d.ts
+	rm -f src/grammar.js src/grammar.d.ts
