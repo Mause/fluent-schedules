@@ -12,6 +12,8 @@ import {
 
 import { parse } from "./grammar.js";
 
+export { parse };
+
 function getNthDay(firstOfMonth: Date, n: number, day: Day): Date {
   // If the 1st is already Thursday, it's the 1st Thursday.
   // Otherwise, get the next Thursday.
