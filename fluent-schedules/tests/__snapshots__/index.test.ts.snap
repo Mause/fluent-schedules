@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parse(last thursday of the month at six thirty) 1`] = `
+{
+  "day_of_week": "thursday",
+  "index": -1,
+  "time": [
+    [
+      " ",
+    ],
+    {
+      "hour": "six",
+      "minute": "thirty",
+    },
+  ],
+  "trailer": "of the month",
+}
+`;
+
+exports[`parse(last thursday of the month) 1`] = `
+{
+  "day_of_week": "thursday",
+  "index": -1,
+  "time": null,
+  "trailer": "of the month",
+}
+`;
+
+exports[`parse(third thursday of the month) 1`] = `
+{
+  "day_of_week": "thursday",
+  "index": 3,
+  "time": null,
+  "trailer": "of the month",
+}
+`;

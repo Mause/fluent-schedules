@@ -1,6 +1,10 @@
-import { expect, test } from "vite-plus/test";
-import { fn } from "../src/index.ts";
+import { parse } from "fluent-schedules";
+import { expect, test } from "vitest";
 
-test("fn", () => {
-  expect(fn()).toBe("Hello, tsdown!");
+test.for([
+  "third thursday of the month",
+  "last thursday of the month",
+  "last thursday of the month at six thirty",
+])("parse(%s)", (param) => {
+  expect(parse(param)).toMatchSnapshot();
 });
