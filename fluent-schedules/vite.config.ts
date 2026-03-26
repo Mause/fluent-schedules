@@ -4,6 +4,7 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: {
+    plugins: [peggyLoader()],
     dts: {
       tsgo: true,
     },
@@ -15,6 +16,5 @@ export default defineConfig({
       typeCheck: true,
     },
   },
-  plugins: [peggyLoader()],
   fmt: {},
 });

@@ -1,1 +1,1 @@
-export { parse } from "./grammar.js";
+export { parse } from "./grammar.pegjs";
