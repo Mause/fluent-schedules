@@ -1,6 +1,7 @@
 import {
   addDays,
   addWeeks,
+  type DateArg,
   type Day,
   eachDayOfInterval,
   formatDate,
@@ -14,7 +15,11 @@ import { parse } from "./grammar.js";
 
 export { parse };
 
-function getNthDay(firstOfMonth: Date, n: number, day: Day): Date {
+function getNthDay<DateType extends Date, ResultDate extends Date>(
+  firstOfMonth: DateArg<DateType>,
+  n: number,
+  day: Day,
+): ResultDate {
   // If the 1st is already Thursday, it's the 1st Thursday.
   // Otherwise, get the next Thursday.
   const firstThursday =
@@ -24,8 +29,12 @@ function getNthDay(firstOfMonth: Date, n: number, day: Day): Date {
   return addWeeks(firstThursday, n - 1);
 }
 
-function parseDay(day: string, opts?: { locale?: Locale }): Day {
-  const today = startOfISOWeek(new Date());
+export function parseDay<DateType extends Date>(
+  referenceDate: DateArg<DateType>,
+  day: string,
+  opts: { locale?: Locale } | undefined = undefined,
+): Day {
+  const today = startOfISOWeek(referenceDate);
   const daysOfWeek = eachDayOfInterval({
     start: today,
     end: addDays(today, 6),
@@ -40,11 +49,14 @@ function parseDay(day: string, opts?: { locale?: Locale }): Day {
   return days.indexOf(day) as Day;
 }
 
-export function iterate(
-  referenceDate: Date,
+export function iterate<
+  DateType extends Date,
+  ResultDate extends Date = DateType,
+>(
+  referenceDate: DateArg<DateType>,
   input: string,
   opts: { locale?: Locale } | undefined = undefined,
-) {
+): ResultDate {
   const parsed = parse(input) as {
     index: 3;
     day_of_week: "tuesday";
@@ -55,6 +67,6 @@ export function iterate(
   return getNthDay(
     referenceDate,
     parsed.index,
-    parseDay(parsed.day_of_week, { locale: opts?.locale }),
+    parseDay(referenceDate, parsed.day_of_week, { locale: opts?.locale }),
   );
 }
