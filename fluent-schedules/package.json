@@ -1,6 +1,10 @@
 {
   "name": "fluent-schedules",
   "packageManager": "yarn@4.13.0",
+  "scripts": {
+    "build": "peggy grammar.pegjs --dts --test '3rd tuesday of the month' --output src/grammar.js",
+    "clean": "rm -f app/grammar.js app/grammar.d.ts"
+  },
   "devDependencies": {
     "peggy": "^5.1.0"
   }
