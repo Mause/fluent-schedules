@@ -25,7 +25,7 @@
     "access": "public"
   },
   "scripts": {
-    "build:grammar": "peggy grammar.pegjs --dts --test '3rd tuesday of the month' --output src/grammar.js",
+    "build:grammar": "peggy src/grammar.pegjs --dts --test '3rd tuesday of the month' --output src/grammar.js --return-types \"{}\"",
     "clean": "rm -f app/grammar.js app/grammar.d.ts",
     "build": "vp pack",
     "dev": "vp pack --watch",
@@ -41,5 +41,8 @@
     "typescript": "^5.9.3",
     "vite-plugin-peggy-loader": "^2.0.1",
     "vite-plus": "^0.1.11"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
   }
 }

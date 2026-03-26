@@ -1,4 +1,4 @@
-src/grammar.js: grammar.pegjs
+src/grammar.js: src/grammar.pegjs
   yarn build:grammar
 
 clean:
