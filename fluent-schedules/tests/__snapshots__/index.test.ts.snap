@@ -1,5 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`iterate 1`] = `2026-02-20T16:00:00.000Z`;
+
 exports[`parse(last thursday of the month at six thirty) 1`] = `
 {
   "day_of_week": "thursday",
