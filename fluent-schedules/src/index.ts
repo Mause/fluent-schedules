@@ -1,9 +1,12 @@
+import { TZDate } from "@date-fns/tz";
 import {
   addDays,
   addWeeks,
+  type ContextOptions,
   type DateArg,
   type Day,
   eachDayOfInterval,
+  eachMonthOfInterval,
   formatDate,
   getDay,
   type Locale,
@@ -81,4 +84,33 @@ export function single<
   opts: { locale?: Locale } | undefined = undefined,
 ): ResultDate {
   return factory(input, opts)(referenceDate);
+}
+
+export function iterate<DateType extends Date, ResultDate extends Date>(
+  {
+    start,
+    end,
+    input,
+  }: {
+    start: DateArg<DateType>;
+    end: DateArg<DateType>;
+    input: string;
+  },
+  opts?: {
+    locale?: Locale;
+  },
+): ResultDate[] {
+  const ctx = {
+    in: (value) => new TZDate(value as Date, "Australia/Perth"),
+  } satisfies ContextOptions<TZDate>;
+
+  const res = factory(input, opts);
+
+  return eachMonthOfInterval(
+    {
+      start,
+      end,
+    },
+    ctx,
+  ).map((start) => res(start));
 }
