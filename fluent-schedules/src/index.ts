@@ -72,7 +72,7 @@ export function factory(input: string, opts: { locale?: Locale } | undefined) {
   };
 }
 
-export function iterate<
+export function single<
   DateType extends Date,
   ResultDate extends Date = DateType,
 >(

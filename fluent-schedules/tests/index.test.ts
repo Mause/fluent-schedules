@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { iterate, parse } from "../src/index.ts";
+import { parse, single } from "../src/index.ts";
 
 test.for([
   "third thursday of the month",
@@ -12,6 +12,6 @@ test.for([
 
 test("iterate", () => {
   expect(
-    iterate(new Date(2026, 1, 1), "third tuesday of the month", {}),
+    single(new Date(2026, 1, 1), "third tuesday of the month", {}),
   ).toMatchSnapshot();
 });
