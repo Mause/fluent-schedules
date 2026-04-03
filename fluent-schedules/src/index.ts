@@ -59,6 +59,19 @@ function typedParse(input: string) {
   return parsed;
 }
 
+export function factory(input: string, opts: { locale?: Locale } | undefined) {
+  const parsed = typedParse(input);
+
+  return <DateType extends Date, ResultDate extends Date>(
+    referenceDate: DateArg<DateType>,
+  ): ResultDate => {
+    const day = parseDay(referenceDate, parsed.day_of_week, {
+      locale: opts?.locale,
+    });
+    return getNthDay(referenceDate, parsed.index, day);
+  };
+}
+
 export function iterate<
   DateType extends Date,
   ResultDate extends Date = DateType,
@@ -67,11 +80,5 @@ export function iterate<
   input: string,
   opts: { locale?: Locale } | undefined = undefined,
 ): ResultDate {
-  const parsed = typedParse(input);
-
-  return getNthDay(
-    referenceDate,
-    parsed.index,
-    parseDay(referenceDate, parsed.day_of_week, { locale: opts?.locale }),
-  );
+  return factory(input, opts)(referenceDate);
 }
