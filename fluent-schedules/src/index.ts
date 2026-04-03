@@ -49,6 +49,16 @@ export function parseDay<DateType extends Date>(
   return days.indexOf(day) as Day;
 }
 
+function typedParse(input: string) {
+  const parsed = parse(input) as {
+    index: 3;
+    day_of_week: "tuesday";
+    trailer: "of the month";
+    time: null;
+  };
+  return parsed;
+}
+
 export function iterate<
   DateType extends Date,
   ResultDate extends Date = DateType,
@@ -57,12 +67,7 @@ export function iterate<
   input: string,
   opts: { locale?: Locale } | undefined = undefined,
 ): ResultDate {
-  const parsed = parse(input) as {
-    index: 3;
-    day_of_week: "tuesday";
-    trailer: "of the month";
-    time: null;
-  };
+  const parsed = typedParse(input);
 
   return getNthDay(
     referenceDate,
