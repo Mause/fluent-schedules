@@ -14,7 +14,7 @@ import {
   startOfISOWeek,
 } from "date-fns";
 
-import { parse } from "./grammar.js";
+import { parse } from "./grammar.pegjs";
 
 export { parse };
 
