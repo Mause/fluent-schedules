@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10
 
+"@biomejs/cli-linux-x64@npm:^2.4.12":
+  version: 2.4.12
+  resolution: "@biomejs/cli-linux-x64@npm:2.4.12"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
 "@date-fns/tz@npm:1.4.1":
   version: 1.4.1
   resolution: "@date-fns/tz@npm:1.4.1"
@@ -868,6 +875,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fluent-schedules@workspace:."
   dependencies:
+    "@biomejs/cli-linux-x64": "npm:^2.4.12"
     "@date-fns/tz": "npm:1.4.1"
     "@types/node": "npm:^25.5.0"
     "@typescript/native-preview": "npm:^7.0.0-dev.20260326.1"
@@ -877,6 +885,9 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite-plugin-peggy-loader: "npm:^2.0.1"
     vite-plus: "npm:^0.1.11"
+  dependenciesMeta:
+    "@biomejs/cli-linux-x64":
+      optional: true
   languageName: unknown
   linkType: soft
 
