@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      id-token: write # Required for OIDC
     env:
       NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
@@ -45,16 +45,18 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           cache: yarn
-          node-version: 20
-          registry-url: https://npm.pkg.github.com/
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+          scope: "@mause"
       - run: yarn --immutable
       - run: |
           npm version "${{ github.event.release.tag_name || 'v0.0.0' }}" --no-git-tag-version
           npm version
       - run: yarn build
       - run: yarn pack
-      - run: npm whoami --registry=https://npm.pkg.github.com/
-      - run: npm publish package.tgz --registry=https://npm.pkg.github.com/ --dry-run
+      - run: npm publish package.tgz --dry-run --provenance --access public --verbose --tag test
       - if: github.event_name == 'release'
         run: |
-          npm publish package.tgz --registry=https://npm.pkg.github.com/
+          npm publish package.tgz --provenance --access public --verbose
+      - if: failure()
+        run: yarn npm publish --access public --provenance --json --dry-run
