@@ -1,3 +1,4 @@
+import { set } from "date-fns";
 import { expect, test } from "vite-plus/test";
 
 import { parse, single } from "../src/index.ts";
@@ -12,6 +13,18 @@ test.for([
 
 test("iterate", () => {
   expect(
-    single(new Date(2026, 1, 1), "third tuesday of the month", {}),
+    single(
+      set(new Date(), {
+        year: 2026,
+        month: 1,
+        date: 1,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0,
+      }),
+      "third tuesday of the month",
+      {},
+    ),
   ).toMatchSnapshot();
 });
