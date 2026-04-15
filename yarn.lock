@@ -8,6 +8,7 @@ __metadata:
 "@biomejs/cli-linux-x64@npm:^2.4.12":
   version: 2.4.12
   resolution: "@biomejs/cli-linux-x64@npm:2.4.12"
+  checksum: 10/1e8c13c7ad794c08520a852e39ade14536a7a6cd0ae80d0ff330de10b018201ba2d69dfacb09350a534213b27a68bd040466cbb7bd5ffb1d3c6b90ee91136f71
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -49,9 +50,6 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite-plugin-peggy-loader: "npm:^2.0.1"
     vite-plus: "npm:^0.1.11"
-  dependenciesMeta:
-    "@biomejs/cli-linux-x64":
-      optional: true
   languageName: unknown
   linkType: soft
 
