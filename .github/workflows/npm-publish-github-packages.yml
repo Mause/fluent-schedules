@@ -21,6 +21,7 @@ jobs:
       - run: yarn --immutable
       - run: make
       - run: yarn build
+      - run: yarn typedoc src/
       - run: yarn tsc -b --verbose
       # - run: yarn test
       - run: yarn pack
