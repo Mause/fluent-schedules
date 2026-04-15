@@ -16,8 +16,6 @@ import {
 
 import { parse } from "./grammar.js";
 
-export { parse };
-
 function getNthDay<DateType extends Date, ResultDate extends Date>(
   firstOfMonth: DateArg<DateType>,
   n: number,
@@ -32,7 +30,7 @@ function getNthDay<DateType extends Date, ResultDate extends Date>(
   return addWeeks(firstThursday, n - 1);
 }
 
-export function parseDay<DateType extends Date>(
+function parseDay<DateType extends Date>(
   referenceDate: DateArg<DateType>,
   day: string,
   opts?: { locale?: Locale },
@@ -52,7 +50,7 @@ export function parseDay<DateType extends Date>(
   return days.indexOf(day) as Day;
 }
 
-function typedParse(input: string) {
+export function typedParse(input: string) {
   const parsed = parse(input) as {
     index: 3;
     day_of_week: "tuesday";

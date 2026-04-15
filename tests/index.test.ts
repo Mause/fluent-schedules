@@ -1,7 +1,8 @@
 import { set } from "date-fns";
 import { expect, test } from "vite-plus/test";
 
-import { parse, single } from "../src/index.ts";
+import { parse } from "../src/grammar.js";
+import { single } from "../src/index.ts";
 
 test.for([
   "third thursday of the month",
