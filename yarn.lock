@@ -48,7 +48,6 @@ __metadata:
     date-fns: "npm:^4.1.0"
     peggy: "npm:^5.1.0"
     typescript: "npm:^5.9.3"
-    vite-plugin-peggy-loader: "npm:^2.0.1"
     vite-plus: "npm:^0.1.11"
   languageName: unknown
   linkType: soft
@@ -1749,15 +1748,6 @@ __metadata:
   version: 7.19.2
   resolution: "undici-types@npm:7.19.2"
   checksum: 10/05c34c63444c8caca7137f122b29ed50c1d7d05d1e0b2337f423575d3264054c4a0139e47e82e65723d09b97fcad6d8b0223b3550430a9006cc00e72a1e035bf
-  languageName: node
-  linkType: hard
-
-"vite-plugin-peggy-loader@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "vite-plugin-peggy-loader@npm:2.0.1"
-  peerDependencies:
-    peggy: ^1.2.0 || ^3.0.2 || ^4.0.0
-  checksum: 10/55460efe15fe84774907a0f46b4351bc3d5e672c32575af3142aca27b99b64c45727e3159bfb191fdc9b890fba4a08eb306e4a8ce4823b1cfcfaa4bf79fa62ff
   languageName: node
   linkType: hard
 

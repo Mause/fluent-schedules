@@ -40,7 +40,6 @@
     "bumpp": "^11.0.1",
     "peggy": "^5.1.0",
     "typescript": "^5.9.3",
-    "vite-plugin-peggy-loader": "^2.0.1",
     "vite-plus": "^0.1.11"
   },
   "dependencies": {
