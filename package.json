@@ -27,7 +27,7 @@
   "scripts": {
     "build:grammar": "peggy src/grammar.pegjs --dts --test '3rd tuesday of the month' --output src/grammar.js --return-types \"{}\"",
     "clean": "rm -f app/grammar.js app/grammar.d.ts",
-    "build": "vp pack",
+    "build": "yarn build:grammar && vp pack",
     "dev": "vp pack --watch",
     "test": "vp test",
     "check": "vp check",
