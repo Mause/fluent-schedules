@@ -35,7 +35,7 @@ function getNthDay<DateType extends Date, ResultDate extends Date>(
 export function parseDay<DateType extends Date>(
   referenceDate: DateArg<DateType>,
   day: string,
-  opts: { locale?: Locale } | undefined = undefined,
+  opts?: { locale?: Locale },
 ): Day {
   const today = startOfISOWeek(referenceDate);
   const daysOfWeek = eachDayOfInterval({
@@ -81,7 +81,7 @@ export function single<
 >(
   referenceDate: DateArg<DateType>,
   input: string,
-  opts: { locale?: Locale } | undefined = undefined,
+  opts?: { locale?: Locale },
 ): ResultDate {
   return factory(input, opts)(referenceDate);
 }

@@ -1,6 +1,5 @@
 {
   "name": "@mause/fluent-schedules",
-  "packageManager": "yarn@4.13.0",
   "version": "0.0.2",
   "description": "A starter for creating a TypeScript package.",
   "homepage": "https://github.com/Mause/fluent-schedules#readme",
@@ -33,6 +32,10 @@
     "check": "vp check",
     "prepublishOnly": "vp run build"
   },
+  "dependencies": {
+    "@date-fns/tz": "1.4.1",
+    "date-fns": "^4.1.0"
+  },
   "devDependencies": {
     "@biomejs/cli-linux-x64": "^2.4.12",
     "@types/node": "^25.5.0",
@@ -42,8 +45,5 @@
     "typescript": "^5.9.3",
     "vite-plus": "^0.1.11"
   },
-  "dependencies": {
-    "@date-fns/tz": "1.4.1",
-    "date-fns": "^4.1.0"
-  }
+  "packageManager": "yarn@4.13.0"
 }
