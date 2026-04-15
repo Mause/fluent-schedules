@@ -21,6 +21,7 @@ jobs:
       - run: yarn --immutable
       # - run: yarn test
       - run: yarn build
+      - run: yarn tsc -b --verbose
       - run: yarn pack
       - run: ls dist*
       - run: tar xvzf package.tgz
