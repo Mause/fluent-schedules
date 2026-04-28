@@ -42,6 +42,7 @@
     "@typescript/native-preview": "^7.0.0-dev.20260326.1",
     "bumpp": "^11.0.1",
     "peggy": "^5.1.0",
+    "typedoc": "^0.28.19",
     "typescript": "^5.9.3",
     "vite-plus": "^0.1.11"
   },
